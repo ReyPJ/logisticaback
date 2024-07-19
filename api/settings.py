@@ -23,7 +23,7 @@ if SECRET_KEY == 'None':
         'No se ha encontrado la variable de entorno DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = None
 
 ALLOWED_HOSTS = ['*']
 SECURE_SSL_REDIRECT = True

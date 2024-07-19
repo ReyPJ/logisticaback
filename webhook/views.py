@@ -79,7 +79,7 @@ class OrderPrepared(APIView):
         try:
             order = Order.objects.get(order_id=order_id)
             order.mark_as_prepared()
-            return Response({'status': 'success', 'message': 'Orden marcada como preparada'}, status=status.HTTP_201_CREATED)
+            return HttpResponseRedirect('https://logisticafront.vercel.app/exito')
         except Order.DoesNotExist:
             return Response({'status': 'error', 'message': 'Orden no encontrada'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:

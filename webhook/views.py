@@ -66,6 +66,7 @@ class WebHookHandler(APIView):
 
 
 class OrderList(generics.ListAPIView):
+    permission_classes = [AllowAny]
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
@@ -75,6 +76,8 @@ class OrderList(generics.ListAPIView):
 
 
 class OrderPrepared(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, order_id, *args, **kwargs):
         try:
             order = Order.objects.get(order_id=order_id)
@@ -90,6 +93,8 @@ class OrderPrepared(APIView):
 
 
 class OrderShipped(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, order_id, *args, **kwargs):
         try:
             order = Order.objects.get(order_id=order_id)
@@ -101,7 +106,8 @@ class OrderShipped(APIView):
                 subject,
                 message,
                 None,
-                ['reynerjiemenz@gmail.com', 'reyner1012002@gmail.com'],
+                ['reynerjiemenz@gmail.com', 'reyner1012002@gmail.com',
+                    'mmrebollido@gmail.com'],
                 fail_silently=False,
             )
 

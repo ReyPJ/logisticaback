@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('webhook.urls')),
     path('api/', include('old_order.urls')),
+    path('api/', include('auther.urls')),
 ]
